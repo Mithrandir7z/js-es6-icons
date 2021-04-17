@@ -39,8 +39,10 @@ img {
     align-items: center;
 }
 
+
 .elements ul li {
     padding: 20px;
+    display: inline-block;
 }
 
 .pattern i {

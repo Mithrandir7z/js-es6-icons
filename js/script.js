@@ -126,7 +126,7 @@ icons.forEach((element, index, array) => {
     </li>
     `;
 
-    previousIcons.innerHTML += printThisIcon;
+    previousIcons.innerHTML = previousIcons.innerHTML + printThisIcon;
    
 });
 
