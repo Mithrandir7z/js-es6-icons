@@ -113,26 +113,71 @@ const colors = [
 // Partendo dalla seguente struttura dati , 
 // mostriamo in pagina tutte le icone disponibili come da layout.
 
-let previousIcons = document.getElementById("elements");
+// let previousIcons = document.getElementById("elements");
 
-icons.forEach((element, index, array) => {
+// icons.forEach((element, index, array) => {
 
 
-    let printThisIcon = `
-    <li>
-        <div class="pattern">
-            <i class="${element.family} ${element.prefix}${element.name}"></i>
-        </div>
-    </li>
-    `;
+//     let printThisIcon = `
+//     <li>
+//         <div class="pattern">
+//             <i class="${element.family} ${element.prefix}${element.name}"></i>
+//         </div>
+//     </li>
+//     `;
 
-    previousIcons.innerHTML = previousIcons.innerHTML + printThisIcon;
+//     previousIcons.innerHTML = previousIcons.innerHTML + printThisIcon;
    
-});
+// });
 
 
 // Milestone 2
 // Coloriamo le icone per tipo
+
+const newIcons = icons.map((element, index, array) => {
+    if ( element.type == "animal" ) {
+        const newIconObject = {
+            ...element,
+            color: "blue"
+        };
+
+        return newIconObject;
+
+    } else if ( element.type == 'vegetable' ) {
+        const newIconObject = {
+            ...element,
+            color: "orange"
+        };
+
+        return newIconObject;
+    } else if ( element.type == 'user' ) {
+        const newIconObject = {
+            ...element,
+            color: "purple"
+        };
+
+        return newIconObject;
+    }
+});
+
+console.log("newIcons", newIcons);
+
+// const catsWithRibbon = cats.map( (element, index, array) => {
+  
+//     let ribbonColour = ( element.gender == 'female' ) ? 'pink' : 'blue';
+//     let ribbonOpacity = element.age * 100;
+  
+//     const newCat = {
+      
+//       ...element,
+//       ribbon: {
+//         color: ribbonColour,
+//         opacity: ribbonOpacity
+//       }
+//     };
+  
+//     return newCat;
+//   });
 
 // Milestone 3
 // Creiamo una select con i tipi di icone e usiamola per filtrare le icone
