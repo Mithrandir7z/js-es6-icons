@@ -166,22 +166,105 @@ console.log("newIcons", newIcons);
 
 //Stampa e colora con style="color: ${element.color}"
 
-newIcons.forEach((element, index, array) => {
+// newIcons.forEach((element, index, array) => {
 
-	let previousNewIcons = document.getElementById("elements");
+// 	let previousNewIcons = document.getElementById("elements");
 
-	let printThisIcon = `
-		<li>
-			<div class="pattern">
-				<i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i>
-			</div>
-		</li>
-	`;
+// 	let printThisIcon = `
+// 		<li>
+// 			<div class="pattern">
+// 				<i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i>
+// 			</div>
+// 		</li>
+// 	`;
 
-	previousNewIcons.innerHTML = previousNewIcons.innerHTML + printThisIcon; 
-});
+// 	previousNewIcons.innerHTML = previousNewIcons.innerHTML + printThisIcon; 
+// });
 
 
 
 // Milestone 3
 // Creiamo una select con i tipi di icone e usiamola per filtrare le icone
+
+//Prendere il valore di select in una variabile e far partire una funzione di stampa.
+//dopo di che creare una condizione --> 
+//if il valore di quella variabile è animal stampa il tipo animal, se è vegetable stampa vegetebale..
+//se è valore all stampa tutto
+
+
+document.getElementById("elementi").onchange = changeListener;
+  
+function changeListener(){
+
+	document.getElementById("elements").innerHTML = "";
+
+	var value = this.value
+	console.log("VALORE ONCHANGE", value);
+
+	//forEach --> if ( element.type == animal && value == animal ) allora stampa l'elemento
+	//fare lo stesso con gli altri tipi.
+
+	newIcons.forEach((element, index, array) => {
+
+		if ( value == 'all' ) {
+			
+			let previousNewIcons = document.getElementById("elements");
+
+			let printThisIcon = `
+				<li>
+					<div class="pattern">
+						<i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i>
+					</div>
+				</li>
+			`;
+
+			previousNewIcons.innerHTML = previousNewIcons.innerHTML + printThisIcon; 
+		}
+		else if ( element.type == 'animal' && value == "animal" ) {
+			
+			let previousNewIcons = document.getElementById("elements");
+
+			let printThisIcon = `
+				<li>
+					<div class="pattern">
+						<i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i>
+					</div>
+				</li>
+			`;
+
+			previousNewIcons.innerHTML = previousNewIcons.innerHTML + printThisIcon; 
+
+		} else if ( element.type == 'vegetable' && value == "vegetable" ) {
+			
+			let previousNewIcons = document.getElementById("elements");
+
+			let printThisIcon = `
+				<li>
+					<div class="pattern">
+						<i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i>
+					</div>
+				</li>
+			`;
+
+			previousNewIcons.innerHTML = previousNewIcons.innerHTML + printThisIcon; 
+
+		} else if ( element.type == 'user' && value == "user" ) {
+			
+			let previousNewIcons = document.getElementById("elements");
+
+			let printThisIcon = `
+				<li>
+					<div class="pattern">
+						<i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i>
+					</div>
+				</li>
+			`;
+
+			previousNewIcons.innerHTML = previousNewIcons.innerHTML + printThisIcon; 
+		} 
+	});
+}
+
+   
+
+
