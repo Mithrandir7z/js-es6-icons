@@ -150,6 +150,7 @@ const newIcons = icons.map((element, index, array) => {
         };
 
         return newIconObject;
+
     } else if ( element.type == 'user' ) {
         const newIconObject = {
             ...element,
@@ -162,22 +163,25 @@ const newIcons = icons.map((element, index, array) => {
 
 console.log("newIcons", newIcons);
 
-// const catsWithRibbon = cats.map( (element, index, array) => {
-  
-//     let ribbonColour = ( element.gender == 'female' ) ? 'pink' : 'blue';
-//     let ribbonOpacity = element.age * 100;
-  
-//     const newCat = {
-      
-//       ...element,
-//       ribbon: {
-//         color: ribbonColour,
-//         opacity: ribbonOpacity
-//       }
-//     };
-  
-//     return newCat;
-//   });
+
+//Stampa e colora con style="color: ${element.color}"
+
+newIcons.forEach((element, index, array) => {
+
+	let previousNewIcons = document.getElementById("elements");
+
+	let printThisIcon = `
+		<li>
+			<div class="pattern">
+				<i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i>
+			</div>
+		</li>
+	`;
+
+	previousNewIcons.innerHTML = previousNewIcons.innerHTML + printThisIcon; 
+});
+
+
 
 // Milestone 3
 // Creiamo una select con i tipi di icone e usiamola per filtrare le icone
